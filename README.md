@@ -12,3 +12,11 @@ This project depends on:
 ```
 make
 ```
+
+## Installing
+
+### Arch Linux
+
+This project is in the AUR under [activate-linux-wayland-git](https://aur.archlinux.org/packages/activate-linux-wayland-git)
+
+Install it using your favorite AUR helper.
