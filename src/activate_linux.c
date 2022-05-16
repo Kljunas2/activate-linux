@@ -50,7 +50,7 @@ static void activate(GtkApplication *app, void *data)
 	int len = 100+title_len+subtitle_len;
 	char text[len];
 
-	snprintf(text, len, "<span font_desc=\"24.0\">%s</span>\n<span font_desc=\"16\">%s</span>", conf->title, conf->subtitle);
+	snprintf(text, len, "<span alpha=\"50%\" font_desc=\"24.0\">%s</span>\n<span alpha=\"50%\" font_desc=\"16\">%s</span>", conf->title, conf->subtitle);
 
 	//GtkWidget *monitor_selection =  monitor_selection_new(gtk_window);
 	GdkDisplay *display = gdk_display_get_default ();
