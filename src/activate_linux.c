@@ -13,21 +13,20 @@ void draw_window(GdkMonitor *monitor, char *text, GtkApplication *app) {
 	gtk_layer_init_for_window(gtk_window);
 
 	gtk_layer_set_layer(gtk_window, GTK_LAYER_SHELL_LAYER_TOP);
-	//
+
 	// gtk layer shell options
 	gtk_layer_set_margin(gtk_window, GTK_LAYER_SHELL_EDGE_RIGHT, 40);
 	gtk_layer_set_margin(gtk_window, GTK_LAYER_SHELL_EDGE_BOTTOM, 40);
 	static const gboolean anchors[] = {FALSE, TRUE, FALSE, TRUE};
 	for (int i = 0; i < GTK_LAYER_SHELL_EDGE_ENTRY_NUMBER; i++) {
-		gtk_layer_set_anchor (gtk_window, i, anchors[i]);
+		gtk_layer_set_anchor(gtk_window, i, anchors[i]);
 	}
 
 	gtk_layer_set_monitor(gtk_window, monitor);
 
 	// set window background to transparent
 	GtkCssProvider *css_provider = gtk_css_provider_new();
-	char *css = "window {background-color: transparent;}"
-		"#title {color: red;}";
+	char *css = "window {background-color: transparent;}";
 	gtk_css_provider_load_from_data(css_provider, css, strlen(css), NULL);
 	GtkStyleContext *context = gtk_widget_get_style_context(GTK_WIDGET(gtk_window));
 	gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(css_provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
@@ -52,8 +51,7 @@ static void activate(GtkApplication *app, void *data)
 
 	snprintf(text, len, "<span alpha=\"50%\" font_desc=\"24.0\">%s</span>\n<span alpha=\"50%\" font_desc=\"16\">%s</span>", conf->title, conf->subtitle);
 
-	//GtkWidget *monitor_selection =  monitor_selection_new(gtk_window);
-	GdkDisplay *display = gdk_display_get_default ();
+	GdkDisplay *display = gdk_display_get_default();
 	for (int i = 0; i < gdk_display_get_n_monitors(display); i++) {
 		GdkMonitor *monitor = gdk_display_get_monitor(display, i);
 		draw_window(monitor, text, app);
