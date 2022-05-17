@@ -5,7 +5,7 @@ The "Activate Windows" watermark ported to Linux with Gtk Layer Shell
 
 ## Dependencies
 This project depends on:
-- `gtk-3.0`
+- `gtk-3.0` (on some distros also `libgtk-3-dev`)
 - `gtk-layer-shell` and any [supported wayland compositor](https://github.com/wmww/gtk-layer-shell#supported-desktops)
 
 ## Building
