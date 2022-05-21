@@ -60,6 +60,10 @@ static void activate(GtkApplication *app, void *data)
 
 int main(int argc, char **argv)
 {
+	if (!gtk_layer_is_supported()) {
+		printf("Your compositor may not support gtk-layer-shell.\n");
+	}
+
 	struct config conf;
 	conf.title = "Activate Linux";
 	conf.subtitle = "Go to Settings to activate Linux.";
