@@ -38,6 +38,10 @@ void draw_window(GdkMonitor *monitor, char *text, GtkApplication *app) {
 	gtk_container_add(GTK_CONTAINER(gtk_window), label);
 	gtk_container_set_border_width(GTK_CONTAINER(gtk_window), 12);
 	gtk_widget_show_all(GTK_WIDGET(gtk_window));
+	cairo_rectangle_t *rectangle = malloc(sizeof(cairo_rectangle_t));
+	memset(rectangle, 0, sizeof(cairo_rectangle_t));
+	cairo_region_t *region = cairo_region_create_rectangle(rectangle);
+	gtk_widget_input_shape_combine_region(GTK_WIDGET(gtk_window), region);
 }
 
 static void activate(GtkApplication *app, void *data)
