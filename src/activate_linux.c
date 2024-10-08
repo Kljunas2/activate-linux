@@ -13,7 +13,7 @@ void draw_window(GdkMonitor *monitor, char *text, GtkApplication *app)
 
 	gtk_layer_init_for_window(gtk_window);
 
-	gtk_layer_set_layer(gtk_window, GTK_LAYER_SHELL_LAYER_TOP);
+	gtk_layer_set_layer(gtk_window, GTK_LAYER_SHELL_LAYER_OVERLAY);
 
 	// gtk layer shell options
 	gtk_layer_set_margin(gtk_window, GTK_LAYER_SHELL_EDGE_RIGHT, 40);
